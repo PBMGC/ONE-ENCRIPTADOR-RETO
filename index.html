@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>ENCRIPTADOR</title>
+  </head>
+  <body>
+    
+    <header class="banner">
+        <div class="banner-content">
+            <h1 class="logo">a</h1>
+        </div>
+    </header>
+
+    <main style="height: 100vh;">
+        <div class="base">
+            <div class="encriptadordiv">
+                <div>
+                    <textarea name="" class="textarea" id="texto" cols="40" rows="15" placeholder="INGRESE EL TEXTO AQUI"></textarea>
+                    <button class="botonencriptar" onclick="encriptar(document.getElementById('texto').value)">encriptar</button>
+                    <button class="botondesencriptar" onclick="desencriptar(document.getElementById('texto').value)">desencriptar</button>
+                </div>
+            </div>
+            <div class="listaencriptada">
+                <div class="lista">
+                    <div class="" id="retirar">
+                        <img src="Muñeco.png" alt="">
+                        <span class="mensaje1">Ningun Mensaje fue encontrado</span>
+                        <p class="mensaje2">Ingresa texto que desees encriptar o desencriptar</p>
+                    </div>
+                    <ul id="palabras">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+      <span>PABLO DARIO MATIAS &copy; 2024</span>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
