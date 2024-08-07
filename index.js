@@ -35,77 +35,72 @@ let alfabeto = [
 ];
 
 const codigos = [
-  "@",
+  "olai",
   "zxy",
-  "#",
-  "1",
-  "$",
+  "oberlai",
+  "uno",
+  "xelop",
   "bvr",
-  "%",
-  "2",
-  "^",
+  "fluk",
+  "dos",
+  "crum",
   "mpl",
-  "&",
-  "3",
-  "*",
+  "vlex",
+  "tres",
+  "dirp",
   "qux",
-  "(",
-  "4",
-  ")",
+  "merf",
+  "cuatro",
+  "trop",
   "tws",
-  "-",
-  "5",
-  "_",
+  "grof",
+  "cinco",
+  "plok",
   "gnr",
-  "=",
-  "6",
-  "+",
+  "krex",
+  "seis",
+  "morf",
   "ywd",
-  "[",
-  "7",
-  "]",
+  "florx",
+  "siete",
+  "krax",
   "plk",
-  "{",
-  "8",
-  "}",
+  "jorp",
+  "ocho",
+  "vort",
   "vjt",
-  "\\",
-  "9",
-  "|",
+  "snur",
+  "nueve",
+  "blup",
   "jmn",
-  ";",
-  "10",
-  ":",
+  "glip",
+  "diez",
+  "xorp",
   "kxq",
-  "'",
-  "11",
-  '"',
+  "wex",
+  "once",
+  "zlep",
   "rfd",
-  ",",
-  "12",
-  ".",
+  "murn",
+  "doce",
+  "flanx",
   "tlg",
-  "/",
-  "13",
-  "<",
+  "krip",
+  "trece",
+  "zrop",
   "ncz",
-  ">",
-  "14",
-  "?",
-  "bsm",
-  "!",
-  "15",
-  "~",
-  "qkp",
-  "`",
+  "tux",
 ];
 
 function añadirlista(palabra) {
   document.getElementById("retirar").style.display = "none";
   document.getElementById("texto").value = "";
+  document.getElementById("palabras").innerHTML=""
   var li = document.createElement("li");
-  li.innerHTML = `${palabra} <button class='copiar' onclick="copiar('${palabra}')">copiar</button>`;
+  li.innerHTML = `${palabra}`;
   document.getElementById("palabras").appendChild(li);
+  document.getElementById("copiarboton").setAttribute("onclick", `copiar('${palabra}')`);
+  document.getElementById("copiarboton").removeAttribute("style")
 }
 
 async function copiar(palabra) {
@@ -145,23 +140,21 @@ function encriptar(texto) {
   }
   
 
-function desencriptar(texto) {
-    if(texto===""){
-        window.alert("INGRESE UNA PALABRA VALIDA")
-        return
+  function desencriptar(texto) {
+    if (texto === "") {
+      window.alert("INGRESE UNA PALABRA VALIDA");
+      return;
     }
-
-    const desencriptado = texto
-      .split("")
-      .map((caracter) => {
-        const indice = codigos.indexOf(caracter.toLowerCase());
-        if (indice !== -1) {
-          return alfabeto[indice];
-        } else {
-          return caracter;
-        }
-      })
-      .join("");
-
-    añadirlista(desencriptado);
-}
+  
+    let palabra = texto;
+  
+    for (let i = 0; i < codigos.length; i++) {
+      if (texto.includes(codigos[i])) {
+        palabra = palabra.split(codigos[i]).join(alfabeto[i]);
+      }
+    }
+  
+    añadirlista(palabra)
+  }
+  
+  
